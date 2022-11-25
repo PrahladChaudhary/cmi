@@ -24,9 +24,10 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.errorMessage = '';
     if(this.isValidUser()) this.router.navigate(['/dashboard']);
+    return false;
   }
 
-  isValidUser(): boolean {
+  isValidUser() {
     if(!this.loginForm.valid || this.loginForm.controls['username'].value !== 'admin' || 
       this.loginForm.controls['userpwd'].value !== 'super') {
         this.errorMessage = 'Please enter the correct username and password';
